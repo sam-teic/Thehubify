@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
 import IntroText from "./IntroText";
-import img from "../assets/icon.png";
+// import img from "../assets/Icon.png";
 
 const caseStudies = [
   {
