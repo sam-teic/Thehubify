@@ -1,6 +1,6 @@
 import React from "react";
 import IntroText from "./IntroText";
-import img from "../assets/picture.png";
+import img from "../assets/Picture.png";
 import { FaLinkedinIn } from "react-icons/fa";
 
 const crew = [
