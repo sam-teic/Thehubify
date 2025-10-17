@@ -1,5 +1,5 @@
 import React from 'react'
-import img from '../assets/frame 19.png'
+import img from '../assets/frame_19.png'
 
 const Proposal = () => {
     return (
