@@ -5,7 +5,7 @@ import img3 from "../assets/service3.png";
 import img4 from "../assets/service4.png";
 import img5 from "../assets/service5.png";
 import img6 from "../assets/service6.png";
-import icon from "../assets/icon.png";
+import icon from "../assets/Icon.png";
 import IntroText from "./IntroText";
 
 
