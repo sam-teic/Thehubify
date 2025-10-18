@@ -1,6 +1,8 @@
 import React from "react";
 import IntroText from "./IntroText";
-import img from "../assets/Picture.png";
+import img from "../assets/picture3.png";
+import img1 from "../assets/picture1.png";
+import img2 from "../assets/picture2.png";
 import { FaLinkedinIn } from "react-icons/fa";
 
 const crew = [
@@ -13,17 +15,17 @@ const crew = [
     linkedin: "#",
   },
   {
-    name: "Sarah Johnson",
+    name: "Ezike Anthony",
     role: "Creative Director",
     bio: "Leads visual identity and branding. Passionate about storytelling and modern web design.",
-    img: img,
+    img: img2,
     linkedin: "#",
   },
   {
-    name: "David Brown",
+    name: "Ofordile Samuel",
     role: "Head of Development",
     bio: "Full-stack developer with a focus on building fast, scalable, and intuitive web apps.",
-    img: img,
+    img: img1,
     linkedin: "#",
   },
   // ✅ You can add more members easily here later

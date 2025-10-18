@@ -1,5 +1,5 @@
 import React from 'react'
-import img from '../assets/hero.png'
+import img from '../assets/hero1.png'
 import Button from './Button'
 
 const Hero = () => {
@@ -20,7 +20,7 @@ const Hero = () => {
           <img
             src={img}
             alt="illustration"
-            className="bg-center object-cover w-[60rem] h-[22rem] md:h-[24rem]"
+            className="bg-center object-cover w-full md:w-[85rem] h-fit md:h-[24rem]"
           />
         </div>
       </div>

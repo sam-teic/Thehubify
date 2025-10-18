@@ -6,7 +6,7 @@ const IntroText = ({section, text}) => {
       <h1 className=" text-3xl font-medium px-1 w-fit rounded-sm">
         {section}
       </h1>
-      <p className="max-w-[20rem] text-[14px] text-gray-600 text-center md:text-left">
+      <p className="max-w-[20rem] md:max-w-xl text-[14px] text-gray-600 text-center md:text-left">
       {text}
       </p>
     </div>

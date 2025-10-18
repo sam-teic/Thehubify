@@ -49,10 +49,10 @@ const Services = () => {
       titleLine1: "Content",
       titleLine2: "Creation",
       img: img5,
-      bgColor: "#022053",
+      bgColor: "#25f4ee",
       highlightColor: "#F3F3F3",
       iconBg: "#000",
-      textColor: "#fff",
+      textColor: "#000",
     },
     {
       titleLine1: "Analytics and",
