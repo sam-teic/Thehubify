@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import IntroText from "./IntroText";
-import img from "../assets/contactimg.png";
+import img from "../assets/contact.png";
 
 const ContactUs = () => {
   const [formType, setFormType] = useState("sayHi");
