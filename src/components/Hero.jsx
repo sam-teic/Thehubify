@@ -20,7 +20,7 @@ const Hero = () => {
           <img
             src={img}
             alt="illustration"
-            className="bg-center object-cover w-full md:w-[85rem] h-fit md:h-[24rem]"
+            className="bg-center object-cover w-[85rem] h-fit md:h-[24rem]"
           />
         </div>
       </div>
