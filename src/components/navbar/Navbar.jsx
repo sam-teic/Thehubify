@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import logo from "../../assets/hubifylogo.png";
 
 const defaultLinks = [
   { name: "About us", link: "/" },
@@ -58,7 +59,8 @@ const Navbar = ({ brand = "TheHubify", links = defaultLinks }) => {
             aria-label="Primary"
           >
             {/* Brand */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center">
+              <img src={logo} alt="TheHubify Logo" className="h-8 w-8 object-contain" />
               <a
                 href="/"
                 className="text-lg font-extrabold tracking-tight focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded"

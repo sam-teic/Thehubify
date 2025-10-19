@@ -6,37 +6,51 @@ import img2 from "../assets/picture2.png";
 import { FaLinkedinIn } from "react-icons/fa";
 
 const crew = [
-
   {
     name: "John Smith",
-    role: "CEO and Founder",
-    bio: "10+ years of experience in digital marketing. Expertise in SEO, PPC, and content strategy.",
+    role: "Founder & CEO",
+    bio: "Visionary leader with a passion for innovation and digital transformation. Oversees strategy, growth, and client success at TheHubify.",
     img: img,
     linkedin: "#",
   },
   {
     name: "Ezike Anthony",
     role: "Creative Director",
-    bio: "Leads visual identity and branding. Passionate about storytelling and modern web design.",
+    bio: "Expert in visual identity, branding, and user experience design. Crafts compelling visuals that bring brands to life online.",
     img: img2,
     linkedin: "#",
   },
   {
     name: "Ofordile Samuel",
     role: "Head of Development",
-    bio: "Full-stack developer with a focus on building fast, scalable, and intuitive web apps.",
+    bio: "Full-stack developer specializing in modern web technologies and automation systems that power scalable digital solutions.",
     img: img1,
     linkedin: "#",
   },
-  // ✅ You can add more members easily here later
+  {
+    name: "Amara Johnson",
+    role: "Marketing & Ads Lead",
+    bio: "Strategist focused on data-driven advertising, campaign optimization, and digital storytelling that drives measurable growth.",
+    img: "",
+    linkedin: "#",
+  },
+  {
+    name: "David Idakwo",
+    role: "AI Automation Specialist",
+    bio: "Automation expert dedicated to building intelligent workflows and AI-powered systems that save time and maximize efficiency.",
+    img: "",
+    linkedin: "#",
+  },
 ];
+
 const Team = () => {
   return (
     <div className="mt-32">
       <IntroText
         section="Team"
-        text="Meet the skilled and experienced team behind our successful digital marketing strategies"
+        text="Meet the creative minds and tech experts driving innovation in web development, branding, advertising, and AI automation."
       />
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
         {crew.map((member, index) => (
           <div

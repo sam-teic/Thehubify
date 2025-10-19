@@ -7,14 +7,13 @@ const Hero = () => {
       <div className="flex flex-col lg:flex-row mt-5 md:gap-24">
         <div className=" flex flex-col gap-6 justify-center">
           <h1 className="text-[45px] leading-tight font-normal">
-            Everything You Need to Build and Grow Your Brand.
+            Everything You Need to Build and Grow Online.
           </h1>
           <p className="text-[17px] text-gray-600">
-            We help brands grow in the digital world through web development,
-            visual identity design, digital marketing, and AI automation
-            solutions that drive results and lasting impact.
+            We create websites, design identities, run digital campaigns, and
+            automate workflows for individuals and brands ready to scale.
           </p>
-          <Button text="Book a Consultation" className='w-64'/>
+          <Button text="Book a Consultation" className="w-64" />
         </div>
         <div className="">
           <img

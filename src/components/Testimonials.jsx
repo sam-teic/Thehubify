@@ -3,34 +3,33 @@ import IntroText from "./IntroText";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 
+
 const testimonials = [
-  
   {
-    id: 2,
-    text: "Positivus transformed our digital marketing strategy completely. Their innovative approach and dedication to results have exceeded our expectations. The ROI we've seen has been remarkable, and their team feels like an extension of our own.",
+    id: 1,
+    text: "TheHubify completely transformed our online presence. From our website redesign to automation setup, everything was seamless. Their team truly understands how to combine design, tech, and strategy for real results.",
     name: "Sarah Johnson",
     position: "CEO at TechStart Inc",
   },
   {
-    id: 3,
-    text: "Working with Positivus has been a game-changer for our business. Their expertise in SEO and content marketing has helped us reach audiences we never thought possible. The results speak for themselves with a 300% increase in organic traffic.",
+    id: 2,
+    text: "Working with TheHubify was the best decision for our brand. They handled everything, from visuals to ads — with precision and creativity. Our engagement and conversions skyrocketed within weeks.",
     name: "Michael Chen",
     position: "Founder at GrowthLabs",
   },
   {
-    id: 4,
-    text: "The level of professionalism and attention to detail from the Positivus team is outstanding. They took the time to understand our brand and delivered campaigns that truly resonated with our target audience. Highly recommended!",
+    id: 3,
+    text: "TheHubify team exceeded our expectations. They didn’t just build a website; they built a system that runs smoothly, automates our workflows, and elevates our entire customer experience.",
     name: "Emily Rodriguez",
-    position: "VP of Marketing at BrandCo",
+    position: "VP of Operations at BrandCo",
   },
   {
-    id: 5,
-    text: "Positivus didn't just meet our expectations - they surpassed them. Their data-driven approach and creative solutions have helped us achieve unprecedented growth. We couldn't be happier with the partnership.",
+    id: 4,
+    text: "Their combination of strategy, creativity, and automation helped us scale faster than we imagined. TheHubify is more than a service provider — they’re a true growth partner.",
     name: "David Thompson",
     position: "Managing Director at Digital Ventures",
   },
 ];
-
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -59,7 +58,7 @@ const Testimonials = () => {
     <div className="mt-32">
       <IntroText
         section="Testimonials"
-        text="Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services"
+        text="Hear from our clients who’ve built, branded, and grown their businesses with TheHubify."
       />
 
       <div className="mt-10">

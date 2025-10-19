@@ -12,24 +12,24 @@ import IntroText from "./IntroText";
 const Services = () => {
   const services = [
     {
-      titleLine1: "Search engine",
-      titleLine2: "optimization",
+      titleLine1: "Web",
+      titleLine2: "Development",
       img: img,
       bgColor: "#F3F3F3",
       highlightColor: "#25f4ee",
       iconBg: "#000",
     },
     {
-      titleLine1: "Pay-per-click",
-      titleLine2: "advertising",
+      titleLine1: "Brand & Visual",
+      titleLine2: "Identity",
       img: img2,
       bgColor: "#25f4ee",
       highlightColor: "#F3F3F3",
       iconBg: "#000",
     },
     {
-      titleLine1: "Social Media",
-      titleLine2: "Marketing",
+      titleLine1: "Digital",
+      titleLine2: "Advertising",
       img: img3,
       bgColor: "#000",
       highlightColor: "#F3F3F3",
@@ -37,8 +37,8 @@ const Services = () => {
       textColor: "#fff",
     },
     {
-      titleLine1: "Email",
-      titleLine2: "Marketing",
+      titleLine1: "AI",
+      titleLine2: "Automation",
       img: img4,
       bgColor: "#F3F3F3",
       highlightColor: "#25f4ee",
@@ -46,8 +46,8 @@ const Services = () => {
       textColor: "#000",
     },
     {
-      titleLine1: "Content",
-      titleLine2: "Creation",
+      titleLine1: "Workflow",
+      titleLine2: "Optimization",
       img: img5,
       bgColor: "#25f4ee",
       highlightColor: "#F3F3F3",
@@ -55,8 +55,8 @@ const Services = () => {
       textColor: "#000",
     },
     {
-      titleLine1: "Analytics and",
-      titleLine2: "Tracking",
+      titleLine1: "Creative",
+      titleLine2: "Design",
       img: img6,
       bgColor: "#000",
       highlightColor: "#F3F3F3",
@@ -65,12 +65,12 @@ const Services = () => {
     },
   ];
 
+
   return (
-    <div className="mt-14">
+    <div className="mt-32">
       <IntroText
         section="Service"
-        text="  At our digital marketing agency, we offer a range of services to help
-        businesses grow and succeed online. These services include:"
+        text="At TheHubify, we offer a range of digital solutions designed to help individuals and businesses build, grow, and scale online. Our services include:"
       />
       <div className="grid grid-cols-1 md:grid-cols-2 justify-between gap-6 mt-8">
         {services.map((service, index) => (

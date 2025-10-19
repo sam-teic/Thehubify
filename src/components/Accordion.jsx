@@ -3,28 +3,28 @@ import IntroText from "./IntroText";
 
 const steps = [
   {
-    title: "Consultation",
-    body: "During the initial consultation we discuss your goals, audience, timeline and budget so we align on scope and success metrics.",
+    title: "Discovery",
+    body: "We start by understanding your goals, audience, and vision to define clear objectives and success metrics for your project.",
   },
   {
-    title: "Research and Strategy",
-    body: "We build a clear strategy with prioritized actions including SEO, content, paid ads and automation to reach your objectives.",
+    title: "Strategy",
+    body: "We craft a tailored plan that aligns creativity with data — covering design, development, advertising, and automation.",
   },
   {
     title: "Design",
-    body: "We create visual identities, wireframes and high-fidelity UI that communicate your brand and convert visitors into customers.",
+    body: "We create a strong visual identity and user experience that reflect your brand, engage users, and build trust.",
   },
   {
     title: "Development",
-    body: "We implement fast, accessible, and SEO-friendly websites using modern stacks and best practices for performance and reliability.",
+    body: "We turn designs into fast, secure, and scalable websites or applications using modern technologies and best practices.",
   },
   {
-    title: "Marketing",
-    body: "We run data-driven campaigns across search and social to drive qualified traffic, leads and measurable ROI.",
+    title: "Promotion",
+    body: "We launch high-impact ad campaigns and optimize content to attract the right audience and drive measurable results.",
   },
   {
-    title: "Launch",
-    body: "We deploy, monitor analytics, and optimize post-launch so your product scales smoothly and delivers continual improvements.",
+    title: "Automation",
+    body: "We integrate AI and workflow automations that save time, streamline processes, and help you scale effortlessly.",
   },
 ];
 
@@ -39,7 +39,7 @@ const Accordion = () => {
     <section className="mt-32">
       <IntroText
         section="Our Working Process"
-        text="Step-by-Step Guide to Achieving Your Business Goals"
+        text="A Clear Path to Building, Growing, and Automating Your Digital Success"
       />
 
       <div className="space-y-6 mt-10">

@@ -71,11 +71,11 @@ const Footer = ({ links = defaultLinks }) => {
             <div className="bg-gray-900 rounded-xl py-8 px-6 flex flex-col sm:flex-row justify-center items-center gap-4">
               <input
                 type="text"
-                placeholder="Email"
+                placeholder="Enter your email"
                 className="pl-3 h-14 border bg-black border-[#f3f3f3] rounded-lg w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-cyan-400"
               />
               <button className="bg-[#25f4ee] w-full sm:w-64 text-black font-medium px-4 py-3 rounded-lg hover:bg-[#1ee2da] transition-colors duration-300">
-                Subscribe to news
+                Subscribe for Updates
               </button>
             </div>
           </div>
