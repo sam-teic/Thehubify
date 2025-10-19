@@ -10,6 +10,7 @@ import Testimonials from '../components/Testimonials'
 import ContactUs from '../components/ContactUs'
 import Footer from '../components/footer/Footer'
 import About from '../components/About'
+import Projects from '../components/Projects'
 
 const Index = () => {
     return (
@@ -23,6 +24,7 @@ const Index = () => {
           {/* <CaseStudies /> */}
           <Accordion />
           <Team />
+          <Projects />
           <Testimonials />
           <ContactUs />
         </div>
