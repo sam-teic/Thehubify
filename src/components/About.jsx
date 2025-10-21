@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import IntroText from "./IntroText";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const About = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
   const stats = [
     { number: "15+", label: "Projects Completed" },
     { number: "98%", label: "Client Satisfaction" },
@@ -32,6 +38,49 @@ const About = () => {
     },
   ];
 
+  // Auto-scroll functionality
+  useEffect(() => {
+    if (!isPaused) {
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % features.length);
+      }, 3500); // Auto-scroll every 3.5 seconds
+
+      return () => clearInterval(interval);
+    }
+  }, [isPaused, features.length]);
+
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+  };
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? features.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % features.length);
+  };
+
+  // Touch handlers for swipe
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 50) {
+      goToNext();
+    }
+    if (touchStartX.current - touchEndX.current < -50) {
+      goToPrevious();
+    }
+  };
+
   return (
     <div className="">
       <div className="mt-20">
@@ -57,21 +106,70 @@ const About = () => {
           </div>
         </div>
 
-        {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          {features.map((feature, index) => (
+        {/* Feature Carousel */}
+        <div
+          className="relative mb-12 overflow-hidden"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Carousel Container */}
+          <div className="relative h-[280px] md:h-[320px]">
             <div
-              key={index}
-              className="bg-white rounded-3xl p-8 md:p-10 border-2 border-[#191A23] hover:bg-[#25f4ee] transition-colors duration-300"
+              className="flex transition-transform duration-500 ease-in-out h-full"
+              style={{
+                transform: `translateX(-${currentIndex * 100}%)`,
+              }}
             >
-              <h4 className="text-xl font-bold text-[#191A23] mb-4">
-                {feature.title}
-              </h4>
-              <p className="text-[#191A23] text-[17px] leading-relaxed">
-                {feature.description}
-              </p>
+              {features.map((feature, index) => (
+                <div key={index} className="min-w-full px-3 md:px-4">
+                  <div className="bg-white rounded-3xl p-8 md:p-10 border-2 border-[#191A23] hover:bg-[#25f4ee] transition-colors duration-300 h-full flex flex-col justify-center">
+                    <h4 className="text-2xl md:text-3xl font-bold text-[#191A23] mb-4">
+                      {feature.title}
+                    </h4>
+                    <p className="text-[#191A23] text-[17px] md:text-lg leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={goToPrevious}
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#191A23] p-2 md:p-3 rounded-full shadow-lg transition-all duration-300 z-10 hover:scale-110"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+          </button>
+
+          <button
+            onClick={goToNext}
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#191A23] p-2 md:p-3 rounded-full shadow-lg transition-all duration-300 z-10 hover:scale-110"
+            aria-label="Next slide"
+          >
+            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+          </button>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center gap-2 mt-6">
+            {features.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`transition-all duration-300 rounded-full ${
+                  index === currentIndex
+                    ? "w-8 h-3 bg-[#25f4ee]"
+                    : "w-3 h-3 bg-gray-300 hover:bg-gray-400"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Stats Grid */}
