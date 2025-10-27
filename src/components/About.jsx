@@ -125,7 +125,7 @@ const About = ({ref, scrollActions={}}) => {
             >
               {features.map((feature, index) => (
                 <div key={index} className="min-w-full px-3 md:px-4">
-                  <div className="bg-white rounded-3xl p-8 md:p-10 border-2 border-[#191A23] hover:bg-[#25f4ee] transition-colors duration-300 h-full flex flex-col justify-center">
+                  <div className="bg-white rounded-3xl p-8 md:p-10 border-2 border-[#191A23] transition-colors duration-300 h-full flex flex-col justify-center">
                     <h4 className="text-2xl md:text-3xl font-bold text-[#191A23] mb-4">
                       {feature.title}
                     </h4>
