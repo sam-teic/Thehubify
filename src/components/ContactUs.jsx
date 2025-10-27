@@ -9,7 +9,7 @@ const IntroText = ({ section, text }) => (
   </div>
 );
 
-const ContactUs = () => {
+const ContactUs = ({ref}) => {
   const [formType, setFormType] = useState("getQuote");
   const [formData, setFormData] = useState({
     name: "",
@@ -123,7 +123,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="mt-36">
+    <div ref={ref} className="mt-36">
       <IntroText
         section="Contact Us"
         text="We'd love to hear from you. Whether you have a question, need assistance, or want a custom quote — fill out the form and our team will get back to you shortly."
