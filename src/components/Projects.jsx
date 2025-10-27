@@ -103,7 +103,7 @@ const Projects = ({ scrollActions = {} }) => {
       />
 
       {/* Filters */}
-      <div className="mt-16 mb-12 w-full mx-4">
+      <div className="mt-16 mb-12">
         <div className="flex flex-wrap gap-4 justify-center">
           {filters.map((filter) => (
             <button
