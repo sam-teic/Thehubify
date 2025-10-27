@@ -175,7 +175,7 @@ const Pricing = () => {
 
       {/* Tabs */}
       <div className="mt-16 mb-12 flex flex-col md:flex-row gap-1 md:gap-0 justify-center">
-        <div className="inline-flex bg-[#F3F3F3] rounded-2xl p-2 border-2 border-[#191A23]">
+        <div className=" bg-[#F3F3F3] rounded-2xl p-2 border-2 border-[#191A23]">
           {["value", "tiers", "factors"].map((tab) => (
             <button
               key={tab}
