@@ -68,7 +68,7 @@ const Footer = ({ links = defaultLinks }) => {
             </div>
 
             {/* Newsletter */}
-            <div className="bg-gray-900 rounded-xl py-8 px-6 flex flex-col sm:flex-row justify-center items-center gap-4">
+            <div className="bg-gray-900 rounded-xl py-8 px-6 flex flex-col lg:flex-row justify-center items-center gap-4">
               <input
                 type="text"
                 placeholder="Enter your email"

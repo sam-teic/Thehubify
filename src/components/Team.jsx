@@ -3,6 +3,7 @@ import IntroText from "./IntroText";
 import img from "../assets/picture3.png";
 import img1 from "../assets/picture1.png";
 import img2 from "../assets/picture2.png";
+import img4 from "../assets/picture4.png";
 import { FaLinkedinIn } from "react-icons/fa";
 
 const crew = [
@@ -31,7 +32,7 @@ const crew = [
     name: "Amara Johnson",
     role: "Marketing & Ads Lead",
     bio: "Strategist focused on data-driven advertising, campaign optimization, and digital storytelling that drives measurable growth.",
-    img: "",
+    img: img4,
     linkedin: "#",
   },
   {

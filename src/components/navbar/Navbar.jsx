@@ -2,24 +2,28 @@ import React, { useState, useEffect } from "react";
 import logo from "../../assets/hubifylogo.png";
 
 const defaultLinks = [
-  { name: "About us", link: "/" },
-  { name: "Services", link: "/services" },
-  { name: "Pricing", link: "/pricing" },
+  { name: "About us", key: "about" },
+  { name: "Services", key: "services" },
+  { name: "Pricing", key: "pricing" },
 ];
 
-const NavItem = ({ name, link, onClick }) => (
+
+const NavItem = ({ name, onClick }) => (
   <li>
-    <a
-      href={link}
+    <button
       onClick={onClick}
-      className="block px-4 py-2 text-sm md:text-base hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 rounded"
+      className="block px-4 py-2 text-[17px] md:text-base hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 rounded"
     >
       {name}
-    </a>
+    </button>
   </li>
 );
 
-const Navbar = ({ brand = "TheHubify", links = defaultLinks }) => {
+const Navbar = ({
+  brand = "TheHubify",
+  links = defaultLinks,
+  scrollActions = {},
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -60,7 +64,11 @@ const Navbar = ({ brand = "TheHubify", links = defaultLinks }) => {
           >
             {/* Brand */}
             <div className="flex items-center">
-              <img src={logo} alt="TheHubify Logo" className="h-8 w-8 object-contain" />
+              <img
+                src={logo}
+                alt="TheHubify Logo"
+                className="h-8 w-8 object-contain"
+              />
               <a
                 href="/"
                 className="text-lg font-extrabold tracking-tight focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded"
@@ -78,19 +86,21 @@ const Navbar = ({ brand = "TheHubify", links = defaultLinks }) => {
                   <NavItem
                     key={item.name}
                     name={item.name}
-                    link={item.link}
-                    onClick={closeMenu}
+                    onClick={() => {
+                      scrollActions[item.key]?.();
+                      closeMenu();
+                    }}
                   />
                 ))}
               </ul>
 
-              <div>
-                <a
-                  href="/quote"
-                  className="ml-4 inline-block px-4 py-2 border border-black rounded-lg text-sm font-medium hover:bg-black hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                >
-                  Request a quote
-                </a>
+              <div
+                onClick={() => {
+                  scrollActions.contact?.();
+                }}
+                className="ml-4 cursor-pointer inline-block px-4 py-2 border border-black rounded-lg text-sm font-medium hover:bg-black hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              >
+                Request a quote
               </div>
             </div>
 
@@ -144,20 +154,22 @@ const Navbar = ({ brand = "TheHubify", links = defaultLinks }) => {
                     <NavItem
                       key={item.name}
                       name={item.name}
-                      link={item.link}
-                      onClick={closeMenu}
+                      onClick={() => {
+                        scrollActions[item.key]?.();
+                        closeMenu();
+                      }}
                     />
                   ))}
                 </ul>
 
-                <div className="mt-4">
-                  <a
-                    href="/quote"
-                    onClick={closeMenu}
-                    className="block text-center px-4 py-2 border border-black rounded-lg text-sm font-medium hover:bg-black hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                  >
-                    Request a quote
-                  </a>
+                <div
+                  onClick={() => {
+                    scrollActions.contact?.();
+                    closeMenu();
+                  }}
+                  className="block mt-4 cursor-pointer text-center px-4 py-2 border border-black rounded-lg text-[17px] font-medium hover:bg-black hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                >
+                  Request a quote
                 </div>
               </div>
             </div>

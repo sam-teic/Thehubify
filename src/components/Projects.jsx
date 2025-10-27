@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import IntroText from "./IntroText";
 
-const Projects = () => {
+const Projects = ({ scrollActions = {} }) => {
   const [activeFilter, setActiveFilter] = useState("all");
 
   const projects = [
@@ -14,6 +14,8 @@ const Projects = () => {
         "A fully responsive e-commerce solution with advanced filtering, payment integration, and real-time inventory management.",
       tags: ["React", "Node.js", "Stripe"],
       image: "/api/placeholder/800/600",
+      status: "In Progress",
+      progress: 65,
     },
     {
       id: 2,
@@ -24,6 +26,8 @@ const Projects = () => {
         "Complete brand identity system including logo design, color palette, typography, and brand guidelines.",
       tags: ["Logo Design", "Brand Strategy", "Visual Identity"],
       image: "/api/placeholder/800/600",
+      status: "Coming Soon",
+      progress: 30,
     },
     {
       id: 3,
@@ -31,9 +35,11 @@ const Projects = () => {
       category: "automation",
       client: "SaaS Company",
       description:
-        "AI-powered marketing automation system that increased lead conversion by 150% through intelligent email sequencing.",
+        "AI-powered marketing automation system that will increase lead conversion through intelligent email sequencing.",
       tags: ["AI", "Email Marketing", "Analytics"],
       image: "/api/placeholder/800/600",
+      status: "In Development",
+      progress: 45,
     },
     {
       id: 4,
@@ -44,6 +50,8 @@ const Projects = () => {
         "Secure mobile banking application with biometric authentication, instant transfers, and financial insights.",
       tags: ["React Native", "Security", "UX Design"],
       image: "/api/placeholder/800/600",
+      status: "Upcoming",
+      progress: 20,
     },
     {
       id: 5,
@@ -51,9 +59,11 @@ const Projects = () => {
       category: "marketing",
       client: "Fashion Brand",
       description:
-        "Multi-platform social media campaign that generated 2M+ impressions and 45% increase in engagement.",
+        "Multi-platform social media campaign designed to generate maximum impressions and engagement.",
       tags: ["Social Media", "Content Creation", "Analytics"],
       image: "/api/placeholder/800/600",
+      status: "In Planning",
+      progress: 15,
     },
     {
       id: 6,
@@ -64,6 +74,8 @@ const Projects = () => {
         "Real-time analytics dashboard with data visualization, custom reporting, and API integrations.",
       tags: ["Vue.js", "D3.js", "API Integration"],
       image: "/api/placeholder/800/600",
+      status: "In Progress",
+      progress: 55,
     },
   ];
 
@@ -81,11 +93,13 @@ const Projects = () => {
       ? projects
       : projects.filter((project) => project.category === activeFilter);
 
+
+
   return (
     <div className="mt-36">
       <IntroText
         section="Our Work"
-        text="Explore our portfolio of successful projects that showcase our expertise in delivering exceptional digital solutions."
+        text="Explore our upcoming projects and work in progress. We're actively building exceptional digital solutions."
       />
 
       {/* Filters */}
@@ -112,8 +126,17 @@ const Projects = () => {
         {filteredProjects.map((project) => (
           <div
             key={project.id}
-            className="bg-white rounded-3xl border-2 border-[#191A23] overflow-hidden hover:bg-[#F3F3F3] transition-colors duration-300"
+            className="bg-white rounded-3xl border-2 border-[#191A23] overflow-hidden hover:bg-[#F3F3F3] transition-colors duration-300 relative"
           >
+            {/* Status Badge */}
+            <div className="absolute top-4 right-4 z-10">
+              <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border-2 border-[#191A23] shadow-lg">
+                <span className="text-sm font-bold text-[#191A23]">
+                  {project.status}
+                </span>
+              </div>
+            </div>
+
             {/* Project Image */}
             <div className="relative h-64 bg-[#F3F3F3] border-b-2 border-[#191A23]">
               <div className="absolute inset-0 flex items-center justify-center">
@@ -140,6 +163,24 @@ const Projects = () => {
                 {project.description}
               </p>
 
+              {/* Progress Bar
+              <div className="mb-6">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-sm font-medium text-[#191A23]">
+                    Progress
+                  </span>
+                  <span className="text-sm font-bold text-[#191A23]">
+                    {project.progress}%
+                  </span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2.5 border border-[#191A23]">
+                  <div
+                    className="bg-[#25f4ee] h-full rounded-full transition-all duration-300"
+                    style={{ width: `${project.progress}%` }}
+                  ></div>
+                </div>
+              </div> */}
+
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-6">
                 {project.tags.map((tag, index) => (
@@ -153,8 +194,11 @@ const Projects = () => {
               </div>
 
               {/* View Project Button */}
-              <button className="w-full bg-[#191A23] text-white py-3 rounded-xl font-medium hover:bg-[#25f4ee] hover:text-[#191A23] border-2 border-[#191A23] transition-colors duration-300">
-                View Project Details
+              <button
+                disabled
+                className="w-full bg-gray-300 text-gray-500 py-3 rounded-xl font-medium border-2 border-gray-400 cursor-not-allowed"
+              >
+                Coming Soon
               </button>
             </div>
           </div>
@@ -170,7 +214,12 @@ const Projects = () => {
           Let's collaborate to bring your vision to life with our proven
           expertise and innovative approach.
         </p>
-        <button className="bg-[#191A23] text-white px-10 py-5 rounded-xl text-lg font-bold hover:bg-white hover:text-[#191A23] border-2 border-[#191A23] transition-colors duration-300">
+        <button
+          onClick={() => {
+            scrollActions.contact?.();
+          }}
+          className="bg-[#191A23] text-white px-10 py-5 rounded-xl text-lg font-bold hover:bg-white hover:text-[#191A23] border-2 border-[#191A23] transition-colors duration-300"
+        >
           Start Your Project
         </button>
       </div>

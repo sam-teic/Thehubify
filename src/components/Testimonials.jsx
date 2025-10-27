@@ -62,7 +62,7 @@ const Testimonials = () => {
       />
 
       <div className="mt-10">
-        <div className="relative bg-black rounded-xl lg:rounded-[2.5rem] py-4 sm:py-8 md:p-12 lg:p-16 xl:p-20 shadow-2xl overflow-hidden">
+        <div className="relative bg-black rounded-xl lg:rounded-[2.5rem] py-8 sm:py-8 md:p-12 lg:p-16 xl:p-20 shadow-2xl overflow-hidden">
           {/* Decorative background elements */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#25f4ee] opacity-5 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#25f4ee] opacity-5 rounded-full blur-3xl"></div>

@@ -9,7 +9,7 @@ import icon from "../assets/Icon.png";
 import IntroText from "./IntroText";
 
 
-const Services = () => {
+const Services = ({ref}) => {
   const services = [
     {
       titleLine1: "Web",
@@ -67,7 +67,7 @@ const Services = () => {
 
 
   return (
-    <div className="mt-32">
+    <div ref={ref} className="mt-32">
       <IntroText
         section="Service"
         text="At TheHubify, we offer a range of digital solutions designed to help individuals and businesses build, grow, and scale online. Our services include:"

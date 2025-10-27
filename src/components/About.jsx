@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import IntroText from "./IntroText";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const About = () => {
+const About = ({ref, scrollActions={}}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const touchStartX = useRef(0);
@@ -82,7 +82,7 @@ const About = () => {
   };
 
   return (
-    <div className="">
+    <div ref={ref} className="">
       <div className="mt-20">
         <IntroText
           section="About TheHubify"
@@ -182,7 +182,7 @@ const About = () => {
               <div className="text-3xl md:text-4xl font-bold text-[#191A23] mb-3">
                 {stat.number}
               </div>
-              <p className="text-[#191A23] text-base md:text-lg font-medium">
+              <p className="text-[#191A23] text-[17px] font-medium">
                 {stat.label}
               </p>
             </div>
@@ -198,7 +198,12 @@ const About = () => {
             Let's explore how we can help you build, scale, and automate your
             growth through powerful design, technology, and strategy.
           </p>
-          <button className="bg-[#25f4ee] text-[#191A23] px-10 py-5 rounded-xl text-lg font-bold hover:bg-white transition-colors duration-300">
+          <button
+            onClick={() => {
+              scrollActions.contact?.();
+            }}
+            className="bg-[#25f4ee] text-[#191A23] px-10 py-5 rounded-xl text-[17px] font-bold hover:bg-white transition-colors duration-300"
+          >
             Get Started
           </button>
         </div>

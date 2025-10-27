@@ -12,9 +12,15 @@ const Proposal = () => {
               online presence, elevate your brand, and automate your growth with
               smart digital solutions.
             </p>
-            <button className="bg-black text-white mt-4 px-4 py-3 w-fit rounded-lg">
-              Get your free proposal
-            </button>
+            <a
+              href="https://calendly.com/thehubify/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="bg-black text-white mt-4 px-4 py-3 w-fit rounded-lg">
+                Book a consultation
+              </button>
+            </a>
           </div>
 
           <div className="hidden lg:relative">

@@ -1,9 +1,16 @@
 import React, { useState } from "react";
-import IntroText from "./IntroText";
-import img from "../assets/contact.png";
+import emailjs from "@emailjs/browser";
+import img from "../assets/contact.png"
+
+const IntroText = ({ section, text }) => (
+  <div className="mb-8">
+    <h2 className="text-3xl font-bold text-[#191A23] mb-4">{section}</h2>
+    <p className="text-gray-600">{text}</p>
+  </div>
+);
 
 const ContactUs = () => {
-  const [formType, setFormType] = useState("sayHi");
+  const [formType, setFormType] = useState("getQuote");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -12,23 +19,99 @@ const ContactUs = () => {
     budget: "",
     projectType: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [emailError, setEmailError] = useState("");
 
-  const handleSubmit = () => {
-    console.log("Form submitted:", { formType, ...formData });
-    alert("Message sent successfully!");
-    // Add your form submission logic here
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleSubmit = async () => {
+    if (!formData.name || !formData.email || !formData.message) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    if (!validateEmail(formData.email)) {
+      setEmailError(
+        "Please enter a valid email address (e.g., example@domain.com)"
+      );
+      return;
+    }
+
+    if (formType === "getQuote" && !formData.projectType) {
+      alert("Please select a project type.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // EmailJS configuration - REPLACE THESE WITH YOUR ACTUAL VALUES
+    const SERVICE_ID = "service_ya9wvc7"; // Replace with your EmailJS service ID
+    const TEMPLATE_ID = "template_i5rvfjq"; // Replace with your EmailJS template ID
+    const PUBLIC_KEY = "UoHdr9ipiuFdgF1_Z"; // Replace with your EmailJS public key
+
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      company: formData.company || "N/A",
+      project_type: formData.projectType || "N/A",
+      budget: formData.budget || "N/A",
+      message: formData.message,
+      form_type: formType === "getQuote" ? "Quote Request" : "General Inquiry",
+      time: new Date().toLocaleString(),
+    };
+
+    console.log("Sending email with params:", templateParams);
+
+    try {
+      const result = await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        templateParams,
+        PUBLIC_KEY
+      );
+
+      console.log("Email sent successfully:", result);
+
+      alert("Message sent successfully! We'll get back to you soon.");
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+        company: "",
+        budget: "",
+        projectType: "",
+      });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      alert(
+        "Failed to send message. Please try again or email us directly at thehubify@gmail.com"
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+
+    // Clear email error when user types
+    if (name === "email") {
+      setEmailError("");
+    }
   };
 
   const handleFormTypeChange = (type) => {
     setFormType(type);
-    // Reset form data when switching form types
     setFormData({
       name: "",
       email: "",
@@ -40,10 +123,10 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="mt-36">
+    <div className="mt-36 max-w-7xl mx-auto px-4">
       <IntroText
         section="Contact Us"
-        text="We’d love to hear from you. Whether you have a question, need assistance, or want a custom quote — fill out the form and our team will get back to you shortly."
+        text="We'd love to hear from you. Whether you have a question, need assistance, or want a custom quote — fill out the form and our team will get back to you shortly."
       />
 
       <div className="w-full bg-[#F3F3F3] mt-10 rounded-3xl relative">
@@ -130,7 +213,7 @@ const ContactUs = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Name"
-                  className="w-full px-6 py-3.5 bg-white border border-[#191A23] rounded-xl text-[#191A23] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#B9FF66] focus:border-transparent transition-all duration-300"
+                  className="w-full px-6 py-3.5 bg-white border border-[#191A23] rounded-xl text-[#191A23] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#25f4ee] focus:border-transparent transition-all duration-300"
                 />
               </div>
 
@@ -149,8 +232,15 @@ const ContactUs = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Email"
-                  className="w-full px-6 py-3.5 bg-white border border-[#191A23] rounded-xl text-[#191A23] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#B9FF66] focus:border-transparent transition-all duration-300"
+                  className={`w-full px-6 py-3.5 bg-white border rounded-xl text-[#191A23] placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-300 ${
+                    emailError
+                      ? "border-red-500 focus:ring-red-300"
+                      : "border-[#191A23] focus:ring-[#B9FF66] focus:border-transparent"
+                  }`}
                 />
+                {emailError && (
+                  <p className="text-red-500 text-sm mt-2">{emailError}</p>
+                )}
               </div>
 
               {/* Conditional Fields for "Get a Quote" */}
@@ -171,7 +261,7 @@ const ContactUs = () => {
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="Company Name"
-                      className="w-full px-6 py-3.5 bg-white border border-[#191A23] rounded-xl text-[#191A23] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#B9FF66] focus:border-transparent transition-all duration-300"
+                      className="w-full px-6 py-3.5 bg-white border border-[#191A23] rounded-xl text-[#191A23] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#25f4ee] focus:border-transparent transition-all duration-300"
                     />
                   </div>
 
@@ -188,7 +278,7 @@ const ContactUs = () => {
                       name="projectType"
                       value={formData.projectType}
                       onChange={handleChange}
-                      className="w-full px-6 py-3.5 bg-white border border-[#191A23] rounded-xl text-[#191A23] focus:outline-none focus:ring-2 focus:ring-[#B9FF66] focus:border-transparent transition-all duration-300"
+                      className="w-full px-6 py-3.5 bg-white border border-[#191A23] rounded-xl text-[#191A23] focus:outline-none focus:ring-2 focus:ring-[#25f4ee] focus:border-transparent transition-all duration-300"
                     >
                       <option value="">Select Project Type</option>
                       <option value="web-development">Web Development</option>
@@ -213,7 +303,7 @@ const ContactUs = () => {
                       name="budget"
                       value={formData.budget}
                       onChange={handleChange}
-                      className="w-full px-6 py-3.5 bg-white border border-[#191A23] rounded-xl text-[#191A23] focus:outline-none focus:ring-2 focus:ring-[#B9FF66] focus:border-transparent transition-all duration-300"
+                      className="w-full px-6 py-3.5 bg-white border border-[#191A23] rounded-xl text-[#191A23] focus:outline-none focus:ring-2 focus:ring-[#25f4ee] focus:border-transparent transition-all duration-300"
                     >
                       <option value="">Select Budget Range</option>
                       <option value="under-5k">Under $5,000</option>
@@ -245,16 +335,21 @@ const ContactUs = () => {
                       : "Your message..."
                   }
                   rows="6"
-                  className="w-full px-6 py-3.5 bg-white border border-[#191A23] rounded-xl text-[#191A23] placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-[#B9FF66] focus:border-transparent transition-all duration-300"
+                  className="w-full px-6 py-3.5 bg-white border border-[#191A23] rounded-xl text-[#191A23] placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-[#25f4ee] focus:border-transparent transition-all duration-300"
                 />
               </div>
 
               {/* Submit Button */}
               <button
                 onClick={handleSubmit}
-                className="w-full bg-[#191A23] text-white py-4 rounded-xl font-normal text-base hover:bg-[#2a2b35] transition-all duration-300 shadow-lg hover:shadow-xl"
+                disabled={isSubmitting}
+                className="w-full bg-[#191A23] text-white py-4 rounded-xl font-normal text-base hover:bg-[#2a2b35] transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {formType === "getQuote" ? "Request Quote" : "Send Message"}
+                {isSubmitting
+                  ? "Sending..."
+                  : formType === "getQuote"
+                  ? "Request Quote"
+                  : "Send Message"}
               </button>
             </div>
           </div>
