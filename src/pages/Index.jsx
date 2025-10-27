@@ -17,6 +17,7 @@ const Index = () => {
   const contactRef = useRef(null);
   const aboutRef = useRef(null);
   const servicesRef = useRef(null);
+  const pricingRef = useRef(null)
   
 
  
@@ -31,6 +32,7 @@ const Index = () => {
             about: () => scrollToSection(aboutRef),
             services: () => scrollToSection(servicesRef),
             contact: () => scrollToSection(contactRef),
+            pricing: () => scrollToSection(pricingRef)
           }}
         />
         <Hero />
@@ -51,7 +53,7 @@ const Index = () => {
           }}
         />
         <Testimonials />
-        <Pricing />
+        <Pricing ref={pricingRef} />
         <ContactUs ref={contactRef} />
       </div>
       <Footer />

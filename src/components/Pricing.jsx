@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import IntroText from "./IntroText";
 
-const Pricing = () => {
+const Pricing = ({ref}) => {
   const [activeTab, setActiveTab] = useState("value");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -167,15 +167,15 @@ const Pricing = () => {
   ];
 
   return (
-    <div className="mt-36">
+    <div ref={ref} className="mt-36">
       <IntroText
         section="How We Price Our Work"
         text="Smart businesses don't shop for the lowest price—they look for the best value. Here's how we think about investment."
       />
 
       {/* Tabs */}
-      <div className="mt-16 mb-12 flex flex-col md:flex-row gap-1 md:gap-0 justify-center">
-        <div className=" bg-[#F3F3F3] rounded-2xl p-2 border-2 border-[#191A23]">
+      <div className="mt-16 mb-12 flex justify-center">
+        <div className="flex flex-col md:flex-row w-full md:w-fit items-center justify-center bg-[#F3F3F3] rounded-2xl p-2 border-2 border-[#191A23]">
           {["value", "tiers", "factors"].map((tab) => (
             <button
               key={tab}

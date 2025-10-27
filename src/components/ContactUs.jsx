@@ -123,7 +123,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="mt-36 max-w-7xl mx-auto px-4">
+    <div className="mt-36">
       <IntroText
         section="Contact Us"
         text="We'd love to hear from you. Whether you have a question, need assistance, or want a custom quote — fill out the form and our team will get back to you shortly."
