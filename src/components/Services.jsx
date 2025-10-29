@@ -118,10 +118,10 @@ const Services = ({ref}) => {
                 <img src={icon} alt="icon" className="w-6 h-6 p-1" />
               </div>
               <p
-                className="text-sm cursor-pointer hover:underline"
+                className="text-sm"
                 style={{ color: service.textColor }}
               >
-                Learn more
+                Overview
               </p>
             </div>
           </div>

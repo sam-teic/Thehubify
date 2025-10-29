@@ -57,7 +57,7 @@ const Navbar = ({
           isScrolled ? "shadow-md" : ""
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
           <nav
             className="flex items-center justify-between py-4"
             aria-label="Primary"
@@ -115,7 +115,7 @@ const Navbar = ({
               >
                 <span className="sr-only">Toggle menu</span>
                 <svg
-                  className="h-6 w-6"
+                  className="h-8 w-8"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"

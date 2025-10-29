@@ -1,17 +1,20 @@
 import React from "react";
 import IntroText from "./IntroText";
-import img from "../assets/picture3.png";
+// import img from "../assets/picture3.png";
 import img1 from "../assets/picture1.png";
 import img2 from "../assets/picture2.png";
 import img4 from "../assets/picture4.png";
+import img5 from "../assets/picture5.png"
+import img6 from "../assets/picture6.png"
+
 import { FaLinkedinIn } from "react-icons/fa";
 
 const crew = [
   {
-    name: "John Smith",
+    name: "Ezekiel Johnson",
     role: "Founder & CEO",
     bio: "Visionary leader with a passion for innovation and digital transformation. Oversees strategy, growth, and client success at TheHubify.",
-    img: img,
+    img: img5,
     linkedin: "#",
   },
   {
@@ -39,7 +42,7 @@ const crew = [
     name: "David Idakwo",
     role: "AI Automation Specialist",
     bio: "Automation expert dedicated to building intelligent workflows and AI-powered systems that save time and maximize efficiency.",
-    img: "",
+    img: img6,
     linkedin: "#",
   },
 ];

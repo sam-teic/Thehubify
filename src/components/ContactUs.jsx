@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import img from "../assets/contact.png"
+import IntroText from "./IntroText";
 
-const IntroText = ({ section, text }) => (
-  <div className="mb-8">
-    <h2 className="text-3xl font-bold text-[#191A23] mb-4">{section}</h2>
-    <p className="text-gray-600">{text}</p>
-  </div>
-);
+
 
 const ContactUs = ({ref}) => {
   const [formType, setFormType] = useState("getQuote");

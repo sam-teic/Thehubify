@@ -1,5 +1,5 @@
 import React from 'react'
-import img from '../assets/Frame_19.png'
+
 
 const Proposal = () => {
     return (
@@ -21,14 +21,6 @@ const Proposal = () => {
                 Book a consultation
               </button>
             </a>
-          </div>
-
-          <div className="hidden lg:relative">
-            <img
-              src={img}
-              alt="illustration"
-              className="w-[25rem] h-[20rem] object-contain"
-            />
           </div>
         </div>
       </div>

@@ -56,7 +56,13 @@ const Index = () => {
         <Pricing ref={pricingRef} />
         <ContactUs ref={contactRef} />
       </div>
-      <Footer />
+      <Footer
+        scrollActions={{
+            about: () => scrollToSection(aboutRef),
+            services: () => scrollToSection(servicesRef),
+            contact: () => scrollToSection(contactRef),
+            pricing: () => scrollToSection(pricingRef)
+          }}/>
     </>
   );
 };
