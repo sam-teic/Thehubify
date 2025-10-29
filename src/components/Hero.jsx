@@ -25,6 +25,7 @@ const Hero = () => {
           <img
             src={img}
             alt="illustration"
+            loading="lazy"
             className="bg-center object-contain md:object-cover w-[85rem] h-[24rem]"
           />
         </div>

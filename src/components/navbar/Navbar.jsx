@@ -67,6 +67,7 @@ const Navbar = ({
               <img
                 src={logo}
                 alt="TheHubify Logo"
+                loading="lazy"
                 className="h-8 w-8 object-contain"
               />
               <a

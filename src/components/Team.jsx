@@ -66,6 +66,7 @@ const Team = () => {
                 <img
                   src={member.img}
                   alt={member.name}
+                  loading="lazy"
                   className="w-16 h-16 object-cover rounded-t-xl"
                 />
                 <div className="text-sm">

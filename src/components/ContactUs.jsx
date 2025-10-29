@@ -356,6 +356,7 @@ const ContactUs = ({ref}) => {
               <img
                 src={img}
                 alt="Contact Us"
+                loading="lazy"
                 className="w-full max-w-md h-auto object-contain"
               />
             </div>
